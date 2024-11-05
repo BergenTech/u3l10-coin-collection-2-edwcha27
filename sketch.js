@@ -79,17 +79,18 @@ function movePlayer() {
 }
 
 function moveObstacle() {
-  // TODO: Move obstacle from left to right
+  // TODO: Move obstacle from up to down
   // HINT: Increase obstacleX by obstacleSpeed
   // TODO: Reset obstacle when it goes off screen
   // HINT: Check if obstacleX > width
-  // Reset to left side and new random Y position
+  // Reset to top and new random X position
 }
 
 function checkCoinCollection() {
   // TODO: Check if player touches coin
   if (dist(playerX, playerY, coinX, coinY) < 10) {
     newCoin();
+    score += 1;
   }
   // HINT: Use dist(playerX, playerY, coinX, coinY)
   // If distance < 15:
@@ -134,6 +135,11 @@ function resetGame() {
   // HINT: Reset score, hits, speed
   // Set gameOver to false
   // Call initializeGame()
+  // let playerX, playerY;
+  // let coinX, coinY; //coinCollected;
+  // let obstacleX, obstacleY;
+  // let score = 0;
+  let gameOver = false;
   initializeGame();
 }
 
