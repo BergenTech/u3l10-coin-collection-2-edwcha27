@@ -1,6 +1,6 @@
 // Game variables
 let playerX, playerY;
-let coinX, coinY, coinCollected;
+let coinX, coinY; //coinCollected;
 let obstacleX, obstacleY;
 let score = 0;
 let gameOver = false;
@@ -80,6 +80,7 @@ function movePlayer() {
   // TODO: Add boundary checking
   // HINT: Keep player within canvas bounds
   // Check against 0, width, and height
+  
 }
 
 function moveObstacle() {
