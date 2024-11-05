@@ -15,6 +15,7 @@ function initializeGame() {
   // Initialize player position (bottom center)
   playerX = width / 2;
   playerY = height - 20;
+  score = 0;
 
   // Initialize coin position
   newCoin();
@@ -110,6 +111,7 @@ function checkCollisions() {
   if (dist(playerX, playerY, obstacleX, obstacleY) < 20) {
     newCoin();
     hits += 1;
+    resetGame();
   }
 }
 
@@ -142,11 +144,7 @@ function resetGame() {
   // Set gameOver to false
   // Call initializeGame()
 
-  let playerX, playerY;
-  let coinX, coinY; //coinCollected;
-  let obstacleX, obstacleY;
-  let score = 0;
-  let gameOver = false;
+  score = 0;
   initializeGame();
 }
 
@@ -154,7 +152,7 @@ function keyPressed() {
   // TODO: Check for 'R' key to restart game
   // HINT: Use key === 'r' || key === 'R'
   // Only works when game is over
-  if (keyIsDown("R")) {
+  if (key === "r") {
     resetGame();
   }
 }
