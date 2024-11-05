@@ -15,7 +15,6 @@ function initializeGame() {
   // Initialize player position (bottom center)
   playerX = width / 2;
   playerY = height - 20;
-  score = 0;
 
   // Initialize coin position
   newCoin();
@@ -111,7 +110,7 @@ function checkCollisions() {
   if (dist(playerX, playerY, obstacleX, obstacleY) < 20) {
     newCoin();
     hits += 1;
-    resetGame();
+    initializeGame();
   }
 }
 
@@ -145,6 +144,7 @@ function resetGame() {
   // Call initializeGame()
 
   score = 0;
+  hits = 0;
   initializeGame();
 }
 
