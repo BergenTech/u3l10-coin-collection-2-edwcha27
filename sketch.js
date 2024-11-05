@@ -76,11 +76,6 @@ function movePlayer() {
   if (keyIsDown(DOWN_ARROW)) {
     playerY += 5;
   }
-
-  // TODO: Add boundary checking
-  // HINT: Keep player within canvas bounds
-  // Check against 0, width, and height
-  
 }
 
 function moveObstacle() {
@@ -93,6 +88,9 @@ function moveObstacle() {
 
 function checkCoinCollection() {
   // TODO: Check if player touches coin
+  if (dist(playerX, playerY, coinX, coinY) < 10) {
+    newCoin();
+  }
   // HINT: Use dist(playerX, playerY, coinX, coinY)
   // If distance < 15:
   //   - Increase score
@@ -136,12 +134,16 @@ function resetGame() {
   // HINT: Reset score, hits, speed
   // Set gameOver to false
   // Call initializeGame()
+  initializeGame();
 }
 
 function keyPressed() {
   // TODO: Check for 'R' key to restart game
   // HINT: Use key === 'r' || key === 'R'
   // Only works when game is over
+  if (keyIsDown("R")) {
+    resetGame();
+  }
 }
 
 // Helper function you might need
