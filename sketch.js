@@ -3,6 +3,7 @@ let playerX, playerY;
 let coinX, coinY; //coinCollected;
 let obstacleX, obstacleY;
 let score = 0;
+let hits = 0;
 let gameOver = false;
 
 function setup() {
@@ -106,12 +107,17 @@ function checkCollisions() {
   //   - Increase hits
   //   - Check for game over (hits >= 3)
   //   - Reset positions
+  if (dist(playerX, playerY, obstacleX, obstacleY) < 20) {
+    newCoin();
+    hits += 1;
+  }
 }
 
 function displayStats() {
   fill(0);
   textSize(16);
   text("Score: " + score, 10, 20);
+  text("Hits: " + hits, 10, 35);
   // TODO: Add display for hits and speed
 }
 
@@ -135,10 +141,11 @@ function resetGame() {
   // HINT: Reset score, hits, speed
   // Set gameOver to false
   // Call initializeGame()
-  // let playerX, playerY;
-  // let coinX, coinY; //coinCollected;
-  // let obstacleX, obstacleY;
-  // let score = 0;
+
+  let playerX, playerY;
+  let coinX, coinY; //coinCollected;
+  let obstacleX, obstacleY;
+  let score = 0;
   let gameOver = false;
   initializeGame();
 }
